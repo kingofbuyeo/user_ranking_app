@@ -86,7 +86,7 @@ GET /game-rankings/top10
    1. score: DB가 단일 노드로 구성된 환경으로 DB 처리 한계로 인해 Dead lock 증가하여 중간 처리를 못함
       1. ![socre_1000.png](docs/socre_1000.png)
    2. search ranking
-      1. ![socre_1000.png](docs/socre_1000.png)
+      1. ![socre_1000.png](docs/search_1000.png)
 3. vuser3000, process 10, thread 3000
    1. score
       1. ![score_3000.png](docs/score_3000.png)
