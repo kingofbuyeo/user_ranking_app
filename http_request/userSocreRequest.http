@@ -1,0 +1,12 @@
+### 사용자 랭킹 정보 저장
+POST localhost:8080/game/scores
+Content-Type: application/json
+
+{
+  "userId": "logan3",
+  "nickname": "로건3",
+  "profileImageUrl": "https://www.google.com/url?sa=i&url=https%3A%2F%2Fkr.pinterest.com%2Fdlwjddms89%2F%25ED%2594%2584%25EC%2582%25AC%2F&psig=AOvVaw2V8WMxpSlBuLLXo75RKtfU&ust=1744604738333000&source=images&cd=vfe&opi=89978449&ved=0CBQQjRxqFwoTCKCgw6SV1IwDFQAAAAAdAAAAABAE",
+  "score": 1000
+}
+### 랭킹 리스트 조회
+GET localhost:8080/game-rankings/top10
