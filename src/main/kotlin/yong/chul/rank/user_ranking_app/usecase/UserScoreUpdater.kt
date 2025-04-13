@@ -1,5 +1,8 @@
 package yong.chul.rank.user_ranking_app.usecase
 
+import org.springframework.dao.DataIntegrityViolationException
+import org.springframework.retry.annotation.Backoff
+import org.springframework.retry.annotation.Retryable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import yong.chul.rank.user_ranking_app.core.domain.UserScore
@@ -16,6 +19,11 @@ class UserScoreUpdater(
 ) {
 
     @Transactional
+    @Retryable(
+        value = [DataIntegrityViolationException::class],
+        maxAttempts = 3,
+        backoff = Backoff(delay = 200)  // 1초 간격
+    )
     fun userScoreUpdate(command: UserScoreUpdateCommand){
         val user = userRepository.findByUserId(command.userId) ?: userRepository.save(command.toDomain())
         val newScore = UserScore(command.score, user)
